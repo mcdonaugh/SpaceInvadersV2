@@ -118,7 +118,7 @@ TextureImporter:
         width: 24
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,7 +139,7 @@ TextureImporter:
         width: 24
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,6 +147,111 @@ TextureImporter:
       bones: []
       spriteID: 898988a44fd07410783ec935a89d285a
       internalID: 1170787477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: invader_20_0
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 82
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 361ec7815dd7944539a51a4feebce866
+      internalID: 1633188107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: invader_20_1
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 82
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e42a020de2b784e208fccdd8bb162e33
+      internalID: -216303709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: invader_30_1
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 82
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9329cd8f1a89a4d4fafffffb35353084
+      internalID: -1982799796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: invader_30_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 82
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32ca26e20e8344471bcf628b1985cfbb
+      internalID: -181038509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: invader_UFO
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 78
+        width: 48
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 771fe3a7a8a964fe696334ffe4e01a54
+      internalID: 1356635537
       vertices: []
       indices: 
       edges: []
@@ -164,6 +269,11 @@ TextureImporter:
     nameFileIdTable:
       invader_10_1: -106815467
       invader_10_2: 1170787477
+      invader_20_0: 1633188107
+      invader_20_1: -216303709
+      invader_30_0: -181038509
+      invader_30_1: -1982799796
+      invader_UFO: 1356635537
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

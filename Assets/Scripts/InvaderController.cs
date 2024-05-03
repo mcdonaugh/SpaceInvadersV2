@@ -8,10 +8,17 @@ namespace SpaceInvadersV2.Controllers
         public int InvaderRow => _invaderRow;
         public int InvaderCol => _invaderCol;
         public bool ShootStatus => _canShoot; 
+
+        [SerializeField] private Sprite[] _sprites;
         public event Action<InvaderController> OnInvaderDestroyed;
         private int _invaderRow;
         private int _invaderCol;
         private bool _canShoot = false;
+        
+        private void Awake()
+        {
+            Debug.Log(_sprites.Length);
+        }
         
         private void OnMouseDown()
         {
@@ -23,7 +30,7 @@ namespace SpaceInvadersV2.Controllers
             _canShoot = shootStatus;
         }
 
-        public void SetInvaderCoordinates(int invaderRow, int invaderCol)
+        public void SetCoordinates(int invaderRow, int invaderCol)
         {
             _invaderRow = invaderRow;
             _invaderCol = invaderCol;
@@ -34,11 +41,10 @@ namespace SpaceInvadersV2.Controllers
             gameObject.SetActive(false);
         }
 
-        
+        public void SetSprite(int spriteIndex)
+        {
+            GetComponent<SpriteRenderer>().sprite = _sprites[spriteIndex]; 
+        }
 
-
-
-
-        
     }    
 }
