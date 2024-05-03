@@ -6,20 +6,25 @@ namespace SpaceInvadersV2.Controllers
     public class InvaderController : MonoBehaviour
     {
         public event Action<InvaderController> OnInvaderDestroyed;
-        public int invaderRow;
-        public int invaderCol;
-        private void Update()
+        public int _invaderRow;
+        public int _invaderCol;
+        public bool _canShoot = false;
+        
+        private void Start()
         {
-            OnMouseEnter();
+            EnableShoot();
         }
-        private void OnMouseEnter()
+        private void OnMouseDown()
         {
-            if (Input.GetMouseButtonDown(0))
+            OnInvaderDestroyed?.Invoke(this);
+        }
+        
+        private void EnableShoot()
+        {
+            if (_canShoot)
             {
-                OnInvaderDestroyed?.Invoke(this);
+                Debug.Log($"Invader{_invaderRow},{_invaderCol} is Shooting"); 
             }
         }
-    }
-
-    
+    }    
 }
