@@ -98,8 +98,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce48899532f04eb18d6a1de0ee9a2c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _invaderSprites:
+  - {fileID: -106815467, guid: 08687aa4d15d4498d9e798ac44f7ac42, type: 3}
+  - {fileID: 1170787477, guid: 08687aa4d15d4498d9e798ac44f7ac42, type: 3}
   _invaderRow: 0
   _invaderCol: 0
+  _canShoot: 0
 --- !u!61 &1827988393336936917
 BoxCollider2D:
   m_ObjectHideFlags: 0

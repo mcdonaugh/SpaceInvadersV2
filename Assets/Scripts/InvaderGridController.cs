@@ -11,10 +11,11 @@ namespace SpaceInvadersV2.Controllers
         [SerializeField] private int _maxColumns = 11;
         [SerializeField] private InvaderController[,] _invaderGrid;
         private Vector2 _invaderSpawnOrigin;
-        private float _invaderGridOffset = .3f;
+        private float _invaderGridOffset = .31f;
         private void Awake()
         {
             _invaderGrid = new InvaderController[_maxRows,_maxColumns];
+            _invaderSpawnOrigin = new Vector2(-2f,0);
         }
 
         private void Start()
@@ -29,13 +30,12 @@ namespace SpaceInvadersV2.Controllers
                 for (int j = 0; j < _maxColumns; j++)
                 {
                     InvaderController newInvader = Instantiate(_invader, _invaderSpawnOrigin + new Vector2(j * _invaderGridOffset, i * _invaderGridOffset), quaternion.identity);
-                    newInvader._invaderRow = i;
-                    newInvader._invaderCol = j;
+                    newInvader.SetInvaderCoordinates(i,j);
                     newInvader.OnInvaderDestroyed += OnInvaderDestroyedActionHandler;
                     _invaderGrid[i,j] = newInvader;
                     if (i < 1)
                     {
-                        newInvader._canShoot = true;
+                        newInvader.SetShootStatus(true);
                     }
                 }
             }
@@ -43,10 +43,15 @@ namespace SpaceInvadersV2.Controllers
 
         private void OnInvaderDestroyedActionHandler(InvaderController invader)
         {
-            _invaderGrid[invader._invaderRow, invader._invaderCol].gameObject.SetActive(false);
-            _invaderGrid[invader._invaderRow, invader._invaderCol]._canShoot = false;
-            _invaderGrid[invader._invaderRow + 1, invader._invaderCol]._canShoot = true;
-            Debug.Log($"Invader{invader._invaderRow + 1},{_invader._invaderCol} can now shoot"); 
+            _invaderGrid[invader.InvaderRow, invader.InvaderCol].DestroyInvader();
+
+            if (_invaderGrid[invader.InvaderRow, invader.InvaderCol].InvaderRow < _maxRows -1)
+            {
+                _invaderGrid[invader.InvaderRow, invader.InvaderCol].SetShootStatus(false);
+                _invaderGrid[invader.InvaderRow + 1, invader.InvaderCol].SetShootStatus(true);  
+                Debug.Log($"Invader{invader.InvaderRow + 1},{_invader.InvaderCol} can now shoot"); 
+            }
+            
         }
     }    
 }
