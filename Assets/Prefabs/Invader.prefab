@@ -98,14 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce48899532f04eb18d6a1de0ee9a2c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprites:
-  - {fileID: -106815467, guid: 08687aa4d15d4498d9e798ac44f7ac42, type: 3}
-  - {fileID: 1170787477, guid: 08687aa4d15d4498d9e798ac44f7ac42, type: 3}
-  - {fileID: 1633188107, guid: 08687aa4d15d4498d9e798ac44f7ac42, type: 3}
-  - {fileID: -216303709, guid: 08687aa4d15d4498d9e798ac44f7ac42, type: 3}
-  - {fileID: -181038509, guid: 08687aa4d15d4498d9e798ac44f7ac42, type: 3}
-  - {fileID: -1982799796, guid: 08687aa4d15d4498d9e798ac44f7ac42, type: 3}
-  - {fileID: 1356635537, guid: 08687aa4d15d4498d9e798ac44f7ac42, type: 3}
+  _invaderData:
+  - {fileID: 11400000, guid: cb215fac496454e98a22b0bccc258e8f, type: 2}
+  - {fileID: 11400000, guid: 3e10cc2d9cd2043449d6bbd9d8654b4c, type: 2}
+  - {fileID: 11400000, guid: 460eb526cdb474112aa32cd15305dd37, type: 2}
 --- !u!61 &1827988393336936917
 BoxCollider2D:
   m_ObjectHideFlags: 0

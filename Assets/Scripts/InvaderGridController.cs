@@ -24,6 +24,17 @@ namespace SpaceInvadersV2.Controllers
             GenerateInvaders();
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                foreach (var invader in _invaderGrid)
+                {
+                    invader.PlayMoveAnimation();
+                }
+            }
+        }
+
         private void GenerateInvaderGrid()
         {
             for (int i = 0; i < _maxRows; i++)
@@ -56,15 +67,15 @@ namespace SpaceInvadersV2.Controllers
             {
                 for (int j = 0; j < _maxColumns; j++)
                 {
-                    _invaderGrid[i,j].SetSprite(0);
+                    _invaderGrid[i,j].SetInvader(0);
 
                     if (i > 3)
                     {
-                        _invaderGrid[i,j].SetSprite(4);
+                        _invaderGrid[i,j].SetInvader(2);
                     }
                     else if (i > 1)
                     {
-                        _invaderGrid[i,j].SetSprite(2);
+                        _invaderGrid[i,j].SetInvader(1);
                     }
 
                     yield return new WaitForSeconds(.01f);

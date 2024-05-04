@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e49a28dfc0794843a53d75ea3a18d14, type: 3}
+  m_Name: Invader10
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: -106815467, guid: 08687aa4d15d4498d9e798ac44f7ac42, type: 3}
+  - {fileID: 1170787477, guid: 08687aa4d15d4498d9e798ac44f7ac42, type: 3}
+  - {fileID: -340289614, guid: 08687aa4d15d4498d9e798ac44f7ac42, type: 3}
+  _pointValue: 10

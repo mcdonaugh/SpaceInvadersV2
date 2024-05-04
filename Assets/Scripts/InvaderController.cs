@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using SpaceInvadersV2.Data;
 using UnityEngine;
 
 namespace SpaceInvadersV2.Controllers
@@ -8,20 +10,17 @@ namespace SpaceInvadersV2.Controllers
         public int InvaderRow => _invaderRow;
         public int InvaderCol => _invaderCol;
         public bool ShootStatus => _canShoot; 
-
-        [SerializeField] private Sprite[] _sprites;
         public event Action<InvaderController> OnInvaderDestroyed;
+        [SerializeField] private InvaderData[] _invaderData;
+        private int _invaderIndex;
         private int _invaderRow;
         private int _invaderCol;
+        private int _spriteIndex;
         private bool _canShoot = false;
-        
-        private void Awake()
-        {
-            Debug.Log(_sprites.Length);
-        }
         
         private void OnMouseDown()
         {
+            DestroyInvader();
             OnInvaderDestroyed?.Invoke(this);
         }
         
@@ -38,13 +37,41 @@ namespace SpaceInvadersV2.Controllers
 
         public void DestroyInvader()
         {
+            StartCoroutine(PlayInvaderDeathAnimation());
+        }
+
+        private IEnumerator PlayInvaderDeathAnimation()
+        {
+            _spriteIndex = 2;
+            ChangeSprite(_spriteIndex);
+            yield return new WaitForSeconds(.4f);
             gameObject.SetActive(false);
         }
 
-        public void SetSprite(int spriteIndex)
+        public void SetInvader(int invaderIndex)
         {
-            GetComponent<SpriteRenderer>().sprite = _sprites[spriteIndex]; 
+            _invaderIndex = invaderIndex;
+            _spriteIndex = 0;
+            ChangeSprite(_spriteIndex);
         }
 
+        public void ChangeSprite(int spriteIndex)
+        {
+            GetComponent<SpriteRenderer>().sprite = _invaderData[_invaderIndex].Sprites[spriteIndex];  
+        }
+
+        public void PlayMoveAnimation()
+        {
+            if (_spriteIndex == 1)
+            {
+                _spriteIndex = 0;
+            }
+            else if (_spriteIndex == 0)
+            {
+                _spriteIndex = 1;
+            }
+
+            ChangeSprite(_spriteIndex);
+        }
     }    
 }
