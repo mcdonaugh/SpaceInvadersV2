@@ -11,12 +11,17 @@ namespace SpaceInvadersV2.Controllers
         [SerializeField] private int _maxRows = 5;
         [SerializeField] private int _maxColumns = 11;
         [SerializeField] private InvaderController[,] _invaderGrid;
+        [SerializeField] private AudioClip[] _moveAudio;
+        private AudioSource _audioSource;
+        private int _moveAudioIndex;
         private Vector2 _invaderSpawnOrigin;
         private float _invaderGridOffset = .31f;
         private void Awake()
         {
             _invaderGrid = new InvaderController[_maxRows,_maxColumns];
             _invaderSpawnOrigin = new Vector2(-2f,0);
+            _audioSource = GetComponent<AudioSource>();
+
         }
 
         private void Start()
@@ -32,6 +37,7 @@ namespace SpaceInvadersV2.Controllers
                 {
                     invader.PlayMoveAnimation();
                 }
+                PlayMoveAudio();
             }
         }
 
@@ -94,6 +100,19 @@ namespace SpaceInvadersV2.Controllers
                 _invaderGrid[invader.InvaderRow + 1, invader.InvaderCol].SetShootStatus(true);  
                 Debug.Log($"Invader{invader.InvaderRow + 1},{_invader.InvaderCol} can now shoot"); 
             }
+        }
+        
+        private void PlayMoveAudio()
+        {
+            if (_moveAudioIndex >= _moveAudio.Length)
+            {
+                _moveAudioIndex = 0;
+            }
+            _audioSource.clip = _moveAudio[_moveAudioIndex];
+            _audioSource.Play();
+            Debug.Log(_moveAudioIndex);
+            _moveAudioIndex++;
+            
         }
     }    
 }
