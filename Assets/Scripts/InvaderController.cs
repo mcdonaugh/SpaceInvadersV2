@@ -12,12 +12,19 @@ namespace SpaceInvadersV2.Controllers
         public bool ShootStatus => _canShoot; 
         public event Action<InvaderController> OnInvaderDestroyed;
         [SerializeField] private InvaderData[] _invaderData;
+        [SerializeField] private AudioClip _invaderDeathAudio;
+        private AudioSource _audio;
         private int _invaderIndex;
         private int _invaderRow;
         private int _invaderCol;
         private int _spriteIndex;
         private bool _canShoot = false;
         
+        private void Awake()
+        {
+            _audio = GetComponent<AudioSource>();
+        }
+
         private void OnMouseDown()
         {
             DestroyInvader();
@@ -44,6 +51,8 @@ namespace SpaceInvadersV2.Controllers
         {
             _spriteIndex = 2;
             ChangeSprite(_spriteIndex);
+            _audio.clip = _invaderDeathAudio;
+            _audio.Play();
             yield return new WaitForSeconds(.4f);
             gameObject.SetActive(false);
         }
