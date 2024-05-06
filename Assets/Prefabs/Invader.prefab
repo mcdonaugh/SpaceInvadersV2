@@ -103,7 +103,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cb215fac496454e98a22b0bccc258e8f, type: 2}
   - {fileID: 11400000, guid: 3e10cc2d9cd2043449d6bbd9d8654b4c, type: 2}
   - {fileID: 11400000, guid: 460eb526cdb474112aa32cd15305dd37, type: 2}
-  _invaderDeathAudio: {fileID: 8300000, guid: 25e04ee2ca8424e148fa58d372024540, type: 3}
+  _invaderDeathAudio: {fileID: 8300000, guid: 2abca66d2ed3a440b8acead0417c1c1f, type: 3}
 --- !u!61 &1827988393336936917
 BoxCollider2D:
   m_ObjectHideFlags: 0

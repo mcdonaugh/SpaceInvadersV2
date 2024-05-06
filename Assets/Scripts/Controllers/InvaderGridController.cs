@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
@@ -16,29 +15,25 @@ namespace SpaceInvadersV2.Controllers
         private int _moveAudioIndex;
         private Vector2 _invaderSpawnOrigin;
         private float _invaderGridOffset = .31f;
+        private float _moveSpeed = .031f;
         private void Awake()
         {
             _invaderGrid = new InvaderController[_maxRows,_maxColumns];
             _invaderSpawnOrigin = new Vector2(-2f,0);
             _audioSource = GetComponent<AudioSource>();
-
-        }
-
-        private void Start()
-        {
-            GenerateInvaders();
         }
 
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                foreach (var invader in _invaderGrid)
-                {
-                    invader.PlayMoveAnimation();
-                }
-                PlayMoveAudio();
+                InvaderMove();
             }
+        }
+        public void GenerateInvaders()
+        {
+            GenerateInvaderGrid();
+            StartCoroutine(SetInvaders());
         }
 
         private void GenerateInvaderGrid()
@@ -61,11 +56,6 @@ namespace SpaceInvadersV2.Controllers
             }
         }
 
-        private void GenerateInvaders()
-        {
-            GenerateInvaderGrid();
-            StartCoroutine(SetInvaders());
-        }
 
         private IEnumerator SetInvaders()
         {
@@ -97,8 +87,22 @@ namespace SpaceInvadersV2.Controllers
             if (_invaderGrid[invader.InvaderRow, invader.InvaderCol].InvaderRow < _maxRows -1)
             {
                 _invaderGrid[invader.InvaderRow, invader.InvaderCol].SetShootStatus(false);
-                _invaderGrid[invader.InvaderRow + 1, invader.InvaderCol].SetShootStatus(true);  
-                Debug.Log($"Invader{invader.InvaderRow + 1},{_invader.InvaderCol} can now shoot"); 
+                _invaderGrid[invader.InvaderRow + 1, invader.InvaderCol].SetShootStatus(true);
+            }
+        }
+
+        private void InvaderMove()
+        {
+            StartCoroutine(InvaderMoveCo());
+            PlayMoveAudio();
+        }
+        private IEnumerator InvaderMoveCo()
+        {
+            foreach (var invader in _invaderGrid)
+            {
+                yield return new WaitForSeconds(.01f);
+                invader.transform.position += new Vector3(_moveSpeed,0,0);
+                invader.PlayMoveAnimation();
             }
         }
         
@@ -108,11 +112,10 @@ namespace SpaceInvadersV2.Controllers
             {
                 _moveAudioIndex = 0;
             }
+
             _audioSource.clip = _moveAudio[_moveAudioIndex];
             _audioSource.Play();
-            Debug.Log(_moveAudioIndex);
-            _moveAudioIndex++;
-            
+            _moveAudioIndex++; 
         }
     }    
 }

@@ -406,6 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689c9af32002c40478756c67476a4c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _invaderGridController: {fileID: 1982301090}
 --- !u!4 &1440925882
 Transform:
   m_ObjectHideFlags: 0
