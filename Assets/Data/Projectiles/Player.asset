@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e49a28dfc0794843a53d75ea3a18d14, type: 3}
-  m_Name: UFO
+  m_Script: {fileID: 11500000, guid: 9b3b46662a8fa45298acbf80b8fb2d7e, type: 3}
+  m_Name: Player
   m_EditorClassIdentifier: 
   _sprites:
-  - {fileID: 1356635537, guid: 08687aa4d15d4498d9e798ac44f7ac42, type: 3}
-  _pointValue: 10
+  - {fileID: 770380838, guid: e2958197a5ae34167a714aba745added, type: 3}

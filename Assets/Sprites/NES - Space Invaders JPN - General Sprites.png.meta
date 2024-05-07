@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 08687aa4d15d4498d9e798ac44f7ac42
+guid: e2958197a5ae34167a714aba745added
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,244 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: invader_10_1
+      name: invader_projectile_1_0
       rect:
         serializedVersion: 2
-        x: 147
-        y: 81
-        width: 24
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fd391ad0cd3104240ac6e9e621ae40e6
-      internalID: -106815467
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: invader_10_2
-      rect:
-        serializedVersion: 2
-        x: 179
-        y: 81
-        width: 24
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 898988a44fd07410783ec935a89d285a
-      internalID: 1170787477
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: invader_20_0
-      rect:
-        serializedVersion: 2
-        x: 73
-        y: 82
-        width: 24
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 361ec7815dd7944539a51a4feebce866
-      internalID: 1633188107
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: invader_20_1
-      rect:
-        serializedVersion: 2
-        x: 106
-        y: 82
-        width: 24
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e42a020de2b784e208fccdd8bb162e33
-      internalID: -216303709
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: invader_30_1
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 82
-        width: 24
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9329cd8f1a89a4d4fafffffb35353084
-      internalID: -1982799796
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: invader_30_0
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 82
-        width: 24
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 32ca26e20e8344471bcf628b1985cfbb
-      internalID: -181038509
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: invader_UFO
-      rect:
-        serializedVersion: 2
-        x: 215
-        y: 78
-        width: 48
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 771fe3a7a8a964fe696334ffe4e01a54
-      internalID: 1356635537
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: invader_Die
-      rect:
-        serializedVersion: 2
-        x: 437
-        y: 31
-        width: 26
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 45f66a5fc994e410ca3c3fc26f063aab
-      internalID: -340289614
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: base_0
-      rect:
-        serializedVersion: 2
-        x: 316
-        y: 78
-        width: 44
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6d6102a1779e64246a26601c7d868d7f
-      internalID: 666943808
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: base_1
-      rect:
-        serializedVersion: 2
-        x: 373
-        y: 80
-        width: 44
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d70feae4b4b174951b93ec011f00ffa9
-      internalID: 820292718
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: projectile_plunger_base
-      rect:
-        serializedVersion: 2
-        x: 415
-        y: 34
-        width: 2
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c919ff4cc0e4c44d3abeb7a69ed76049
-      internalID: -403053682
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: projectile_plunger_effect
-      rect:
-        serializedVersion: 2
-        x: 413
-        y: 44
-        width: 6
-        height: 2
+        x: 112
+        y: 172
+        width: 3
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -355,8 +124,260 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e040fcc7c0b654262be92ff3afc9cd5c
-      internalID: -1951596230
+      spriteID: c1243b68287e84b0caf3f5267c7838be
+      internalID: -1550326859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: invader_projectile_1_1
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 172
+        width: 3
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ccca1230a11641c4998800b940e8ed9
+      internalID: 1763639472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: invader_projectile_1_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 172
+        width: 3
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8b30b886c63c4b78988e59aeac22590
+      internalID: 1309073874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: invader_projectile_1_3
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 172
+        width: 3
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b02445d06c1fc412389504d73ccc82f3
+      internalID: -1779781763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: invader_projectile_2_0
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 163
+        width: 3
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf7865911c5b247d3a196cce1f4560b4
+      internalID: 1597825011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: invader_projectile_2_1
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 163
+        width: 3
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd9c66719b8db48f7a8fdf79b98bb37d
+      internalID: 1804844384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: invader_projectile_2_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 163
+        width: 3
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f1f6bfe6add74bf59d0c846d11172c3
+      internalID: 1707288469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: invader_projectile_2_3
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 163
+        width: 3
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a37ae78d1c4124ee18e23e1d4cfe5274
+      internalID: 1167227482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: invader_projectile_3_3
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 154
+        width: 3
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd900d735549f4280a36f59352b8da21
+      internalID: 1246678963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: invader_projectile_3_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 154
+        width: 3
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cfeaf2e8439c4bab806f233177dd5b1
+      internalID: 732188150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: invader_projectile_3_1
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 154
+        width: 3
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dea39ebdcc93e4b41abbb61388f5ceb2
+      internalID: 1671835560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: invader_projectile_3_0
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 154
+        width: 3
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5a25f4cbffff4457a1a383320681ca6
+      internalID: 1602830280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_projectile_1
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 172
+        width: 3
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9ad377aef9dd4502a1eb2ebe8fd1472
+      internalID: 770380838
       vertices: []
       indices: 
       edges: []
@@ -364,7 +385,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7b67114b864cd4d0ca42774fd26d253b
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -372,18 +393,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      base_0: 666943808
-      base_1: 820292718
-      invader_10_1: -106815467
-      invader_10_2: 1170787477
-      invader_20_0: 1633188107
-      invader_20_1: -216303709
-      invader_30_0: -181038509
-      invader_30_1: -1982799796
-      invader_Die: -340289614
-      invader_UFO: 1356635537
-      projectile_plunger_base: -403053682
-      projectile_plunger_effect: -1951596230
+      invader_projectile_1_0: -1550326859
+      invader_projectile_1_1: 1763639472
+      invader_projectile_1_2: 1309073874
+      invader_projectile_1_3: -1779781763
+      invader_projectile_2_0: 1597825011
+      invader_projectile_2_1: 1804844384
+      invader_projectile_2_2: 1707288469
+      invader_projectile_2_3: 1167227482
+      invader_projectile_3_0: 1602830280
+      invader_projectile_3_1: 1671835560
+      invader_projectile_3_2: 732188150
+      invader_projectile_3_3: 1246678963
+      player_projectile_1: 770380838
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

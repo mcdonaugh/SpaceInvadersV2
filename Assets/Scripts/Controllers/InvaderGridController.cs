@@ -7,24 +7,23 @@ namespace SpaceInvadersV2.Controllers
     public class InvaderGridController : MonoBehaviour
     {
         [SerializeField] private InvaderController _invader;
-
         [SerializeField] private int _maxRows = 5;
         [SerializeField] private int _maxColumns = 11;
         [SerializeField] private InvaderController[,] _invaderGrid;
         [SerializeField] private Vector2 _invaderSpawnOrigin;
+        [SerializeField] private float _moveDistance = .065f;
+        [SerializeField] private AudioClip[] _moveAudio;
+        private int _invaderCount;
         private float _invaderGridOffsetX = .3f;
         private float _invaderGridOffsetY = .35f;
         private float _invaderMoveInterval;
-        [SerializeField] private float _moveDistance = .065f;
         private int _directionX = 1;
         private float _invaderMoveBounds;
         private Bounds _invaderGridBounds;
         private Vector2 _invaderGridBoundsRight;
         private Vector2 _invaderGridBoundsLeft;
-        [SerializeField] private AudioClip[] _moveAudio;
         private AudioSource _audioSource;
         private int _moveAudioIndex;
-        private int _invaderCount;
 
         private void Awake()
         {
@@ -159,7 +158,6 @@ namespace SpaceInvadersV2.Controllers
         {
             _invaderGrid[invader.InvaderRow, invader.InvaderCol].DestroyInvader();
             _invaderCount--;
-            Debug.Log(_invaderCount);
             CheckSpeed();
 
             if (_invaderGrid[invader.InvaderRow, invader.InvaderCol].InvaderRow < _maxRows -1)

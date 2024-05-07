@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 namespace SpaceInvadersV2.Data
