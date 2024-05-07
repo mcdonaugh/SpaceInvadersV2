@@ -50,12 +50,6 @@ namespace SpaceInvadersV2.Controllers
             StartCoroutine(InvaderMoveTimer());
         }
 
-        public void SetProjectilePoolController(ProjectilePoolController projectilePoolController)
-        {
-            _projectilePoolController = projectilePoolController;
-            Debug.Log("Set At Grid");
-        }
-
         private void GenerateInvaderGrid()
         {
             for (int i = 0; i < _maxRows; i++)

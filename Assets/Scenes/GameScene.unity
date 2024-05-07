@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06a5bf346903c4a0f824c8721464146c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _projectileController: {fileID: 412835764121231722, guid: 4ba658ba7aaea44d1b12281db16e26bf, type: 3}
 --- !u!1 &548183935
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,8 +451,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 689c9af32002c40478756c67476a4c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _invaderGridController: {fileID: 1982301090}
   _gameBounds: 2.125
+  _invaderGridController: {fileID: 0}
 --- !u!4 &1440925882
 Transform:
   m_ObjectHideFlags: 0
@@ -591,6 +592,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4d6d27a4120a3401db7875f5285c9fb5, type: 3}
   - {fileID: 8300000, guid: 3d96714f1873d429185eb91ac22645a0, type: 3}
   - {fileID: 8300000, guid: 8e5d893b60f8a438eb161eca22ac9eca, type: 3}
+  _projectilePoolController: {fileID: 75430225}
 --- !u!4 &1982301091
 Transform:
   m_ObjectHideFlags: 0
@@ -709,7 +711,7 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 1440925882}
-  - {fileID: 1982301091}
-  - {fileID: 548183938}
-  - {fileID: 1557773497}
   - {fileID: 75430224}
+  - {fileID: 1982301091}
+  - {fileID: 1557773497}
+  - {fileID: 548183938}

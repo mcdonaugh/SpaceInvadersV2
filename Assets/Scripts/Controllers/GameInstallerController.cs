@@ -1,4 +1,3 @@
-using Unity.Mathematics;
 using UnityEngine;
 
 namespace SpaceInvadersV2.Controllers
@@ -12,7 +11,6 @@ namespace SpaceInvadersV2.Controllers
         private void Start()
         {
             _invaderGridController.GenerateInvaders();
-            _invaderGridController.SetProjectilePoolController(_projectilePoolController);
             _invaderGridController.SetMoveBounds(_gameBounds);
         }
     }
