@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace SpaceInvadersV2.Controllers
@@ -9,20 +7,24 @@ namespace SpaceInvadersV2.Controllers
     public class InvaderGridController : MonoBehaviour
     {
         [SerializeField] private InvaderController _invader;
+
         [SerializeField] private int _maxRows = 5;
         [SerializeField] private int _maxColumns = 11;
         [SerializeField] private InvaderController[,] _invaderGrid;
-        [SerializeField] private AudioClip[] _moveAudio;
-        [SerializeField] private BoxCollider2D[] _gridColliders;
-        [SerializeField] private float _moveDistance = .05f;
         [SerializeField] private Vector2 _invaderSpawnOrigin;
+        private float _invaderGridOffset = .31f;
+        private float _invaderMoveInterval;
+        [SerializeField] private float _moveDistance = .05f;
+        private int _directionX = 1;
         private Bounds _bounds;
         private Vector3 _gridBoundsRight;
         private Vector3 _gridBoundsLeft;
+
+        [SerializeField] private AudioClip[] _moveAudio;
         private AudioSource _audioSource;
         private int _moveAudioIndex;
-        private int _directionX = 1;
-        private float _invaderGridOffset = .31f;
+        private int _invaderCount;
+
         private void Awake()
         {
             _invaderGrid = new InvaderController[_maxRows,_maxColumns];
@@ -36,18 +38,11 @@ namespace SpaceInvadersV2.Controllers
             Gizmos.DrawWireCube(_bounds.center, _bounds.size);
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                StartCoroutine(InvaderMove());
-            } 
-        }
-
         public void GenerateInvaders()
         {
             GenerateInvaderGrid();
             StartCoroutine(SetInvaders());
+            StartCoroutine(InvaderMoveTimer());
         }
 
         private void GenerateInvaderGrid()
@@ -61,6 +56,7 @@ namespace SpaceInvadersV2.Controllers
                     newInvader.OnInvaderDestroyed += OnInvaderDestroyedActionHandler;
                     newInvader.gameObject.SetActive(false);
                     _invaderGrid[i,j] = newInvader;
+                    _invaderCount++;
 
                     if (i < 1)
                     {
@@ -93,6 +89,17 @@ namespace SpaceInvadersV2.Controllers
             }
         }
 
+        private IEnumerator InvaderMoveTimer()
+        {
+            CheckSpeed();
+
+            while(_invaderGrid.Length > 0)
+            {
+                yield return new WaitForSeconds(_invaderMoveInterval);
+                StartCoroutine(InvaderMove());
+            }
+        }
+
         private IEnumerator InvaderMove()
         {
             CalculateGridBounds();
@@ -113,7 +120,7 @@ namespace SpaceInvadersV2.Controllers
 
             InvaderMoveX();
 
-            // PlayMoveAudio();
+            PlayMoveAudio();
         }
 
         private void InvaderMoveX()
@@ -143,6 +150,9 @@ namespace SpaceInvadersV2.Controllers
         private void OnInvaderDestroyedActionHandler(InvaderController invader)
         {
             _invaderGrid[invader.InvaderRow, invader.InvaderCol].DestroyInvader();
+            _invaderCount--;
+            Debug.Log(_invaderCount);
+            CheckSpeed();
 
             if (_invaderGrid[invader.InvaderRow, invader.InvaderCol].InvaderRow < _maxRows -1)
             {
@@ -178,6 +188,12 @@ namespace SpaceInvadersV2.Controllers
                     _gridBoundsLeft = new Vector3(_bounds.min.x, transform.position.y, transform.position.z);  
                 }
             }
+        }
+        
+        private void CheckSpeed()
+        {   
+            _invaderMoveInterval = (float)_invaderCount/_invaderGrid.Length;
+            Debug.Log(_invaderMoveInterval);
         }
     }    
 }
