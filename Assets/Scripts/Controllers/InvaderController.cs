@@ -13,6 +13,7 @@ namespace SpaceInvadersV2.Controllers
         public event Action<InvaderController> OnInvaderDestroyed;
         [SerializeField] private InvaderData[] _invaderData;
         [SerializeField] private AudioClip _invaderDeathAudio;
+        private ProjectilePoolController _projectilePoolController;
         private AudioSource _audio;
         private int _invaderIndex;
         private int _invaderRow;
@@ -25,6 +26,11 @@ namespace SpaceInvadersV2.Controllers
             _audio = GetComponent<AudioSource>();
         }
 
+        private void Update()
+        {
+            Shoot();
+        }
+
         private void OnMouseDown()
         {
             DestroyInvader();
@@ -34,6 +40,19 @@ namespace SpaceInvadersV2.Controllers
         public void SetShootStatus(bool shootStatus)
         {
             _canShoot = shootStatus;
+        }
+
+        public void Shoot()
+        {
+            if (_canShoot)
+            {
+                _projectilePoolController.GetProjectile(transform.position, -1);
+            }
+        }
+
+        public void SetProjectilePoolController(ProjectilePoolController projectilePoolController)
+        {
+            _projectilePoolController = projectilePoolController;
         }
 
         public void SetCoordinates(int invaderRow, int invaderCol)

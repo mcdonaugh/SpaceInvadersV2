@@ -13,6 +13,7 @@ namespace SpaceInvadersV2.Controllers
         [SerializeField] private Vector2 _invaderSpawnOrigin;
         [SerializeField] private float _moveDistance = .065f;
         [SerializeField] private AudioClip[] _moveAudio;
+        [SerializeField] private ProjectilePoolController _projectilePoolController;
         private int _invaderCount;
         private float _invaderGridOffsetX = .3f;
         private float _invaderGridOffsetY = .35f;
@@ -31,15 +32,15 @@ namespace SpaceInvadersV2.Controllers
             _audioSource = GetComponent<AudioSource>();
         }
 
-        private void Update()
-        {
-            CalculateGridBounds();
-        }
-
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireCube(_invaderGridBounds.center, _invaderGridBounds.size);
+        }
+
+        private void Update()
+        {
+            CalculateGridBounds();
         }
 
         public void GenerateInvaders()
@@ -47,6 +48,12 @@ namespace SpaceInvadersV2.Controllers
             GenerateInvaderGrid();
             StartCoroutine(SetInvaders());
             StartCoroutine(InvaderMoveTimer());
+        }
+
+        public void SetProjectilePoolController(ProjectilePoolController projectilePoolController)
+        {
+            _projectilePoolController = projectilePoolController;
+            Debug.Log("Set At Grid");
         }
 
         private void GenerateInvaderGrid()
@@ -58,6 +65,7 @@ namespace SpaceInvadersV2.Controllers
                     InvaderController newInvader = Instantiate(_invader, _invaderSpawnOrigin + new Vector2(j * _invaderGridOffsetX, i * _invaderGridOffsetY), quaternion.identity);
                     newInvader.SetCoordinates(i,j);
                     newInvader.OnInvaderDestroyed += OnInvaderDestroyedActionHandler;
+                    newInvader.SetProjectilePoolController(_projectilePoolController);
                     newInvader.gameObject.SetActive(false);
                     _invaderGrid[i,j] = newInvader;
                     _invaderCount++;
@@ -69,6 +77,7 @@ namespace SpaceInvadersV2.Controllers
                 }
             }
         }
+
 
         private IEnumerator SetInvaders()
         {
@@ -124,7 +133,6 @@ namespace SpaceInvadersV2.Controllers
                 InvaderMoveY();
             }
 
-            
             StartCoroutine(InvaderMoveX());
             PlayMoveAudio();
         }
@@ -179,11 +187,10 @@ namespace SpaceInvadersV2.Controllers
             _moveAudioIndex++; 
         }
         
-
         private void CalculateGridBounds()
         {
             _invaderGridBounds = new Bounds();
-
+            
             foreach (var invader in _invaderGrid)
             {
                 if (invader.isActiveAndEnabled)

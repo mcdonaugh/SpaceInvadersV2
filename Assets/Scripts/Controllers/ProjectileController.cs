@@ -10,13 +10,14 @@ namespace SpaceInvadersV2.Controllers
         [SerializeField] private ProjectileData[] _projectileData;
         [SerializeField] private int _projectileIndex;
         [SerializeField] private float _animationPlaySpeed = .05f;
+        [SerializeField] private float _projectileSpeed = 1f;
 
         private void Awake()
         {
             StartCoroutine(AnimateSprite(_projectileIndex));
         }
 
-        private void SetProjectileType(int projectileIndex)
+        public void SetProjectileType(int projectileIndex)
         {
             _projectileIndex = projectileIndex;
         }
@@ -30,8 +31,14 @@ namespace SpaceInvadersV2.Controllers
                     GetComponent<SpriteRenderer>().sprite = _projectileData[_projectileIndex].Sprites[i];
                     yield return new WaitForSeconds(_animationPlaySpeed);
                 } 
-            }
-            
+            }   
+        }
+
+        public IEnumerator MoveProjectile(int direction)
+        {
+            transform.position += new Vector3(0,direction,0) * _projectileSpeed * Time.deltaTime;
+            yield return new WaitForSeconds(2);
+            gameObject.SetActive(false);               
         }
     }    
 }
