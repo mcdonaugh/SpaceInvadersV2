@@ -5,6 +5,7 @@ namespace SpaceInvadersV2.Controllers
     public class GameStateController : MonoBehaviour
     {
         [SerializeField] InvaderGridController _invaderGridController;
+        [SerializeField] private float _gameBounds;
         private void Start()
         {
             StartGame();
@@ -12,6 +13,7 @@ namespace SpaceInvadersV2.Controllers
         private void StartGame()
         {
             _invaderGridController.GenerateInvaders();
+            _invaderGridController.SetMoveBounds(_gameBounds);
         }
     }    
 }
