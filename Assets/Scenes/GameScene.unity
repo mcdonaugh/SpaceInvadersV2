@@ -460,6 +460,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4d6d27a4120a3401db7875f5285c9fb5, type: 3}
   - {fileID: 8300000, guid: 3d96714f1873d429185eb91ac22645a0, type: 3}
   - {fileID: 8300000, guid: 8e5d893b60f8a438eb161eca22ac9eca, type: 3}
+  _gridColliders: []
+  _moveSpeed: 0.05
+  _invaderSpawnOrigin: {x: 0, y: 0}
 --- !u!4 &1982301091
 Transform:
   m_ObjectHideFlags: 0

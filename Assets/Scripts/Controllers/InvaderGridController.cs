@@ -1,29 +1,27 @@
 using System;
 using System.Collections;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace SpaceInvadersV2.Controllers
 {
     public class InvaderGridController : MonoBehaviour
     {
-        private event Action OnRightBoundsHit;
-        private event Action OnLeftBoundsHit;
         [SerializeField] private InvaderController _invader;
         [SerializeField] private int _maxRows = 5;
         [SerializeField] private int _maxColumns = 11;
         [SerializeField] private InvaderController[,] _invaderGrid;
         [SerializeField] private AudioClip[] _moveAudio;
         [SerializeField] private BoxCollider2D[] _gridColliders;
-        [SerializeField] private float _moveSpeed = .031f;
+        [SerializeField] private float _moveDistance = .05f;
         [SerializeField] private Vector2 _invaderSpawnOrigin;
         private Bounds _bounds;
-        private int _currentRowIndex;
         private Vector3 _gridBoundsRight;
         private Vector3 _gridBoundsLeft;
         private AudioSource _audioSource;
         private int _moveAudioIndex;
-        private bool _directionRight = true;
+        private int _directionX = 1;
         private float _invaderGridOffset = .31f;
         private void Awake()
         {
@@ -40,11 +38,9 @@ namespace SpaceInvadersV2.Controllers
 
         private void Update()
         {
-            CalculateGridBounds();
-            
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                InvaderMove();
+                StartCoroutine(InvaderMove());
             } 
         }
 
@@ -52,7 +48,6 @@ namespace SpaceInvadersV2.Controllers
         {
             GenerateInvaderGrid();
             StartCoroutine(SetInvaders());
-            Debug.Log(_gridBoundsLeft.x);
         }
 
         private void GenerateInvaderGrid()
@@ -73,7 +68,6 @@ namespace SpaceInvadersV2.Controllers
                     }
                 }
             }
-            OnRightBoundsHit += OnRightBoundsHitActionHandler;
         }
 
         private IEnumerator SetInvaders()
@@ -99,76 +93,51 @@ namespace SpaceInvadersV2.Controllers
             }
         }
 
-        private void InvaderMove()
+        private IEnumerator InvaderMove()
         {
-            if (_gridBoundsRight.x > 2.25)
+            CalculateGridBounds();
+
+            if (_gridBoundsRight.x >= 2.25)
             {
-                OnRightBoundsHit?.Invoke();
+                _directionX = -1;
+                InvaderMoveY();
+                yield return new WaitForSeconds(1f);
             }
-            if (_gridBoundsLeft.x < -2.25)
-            {
-                OnLeftBoundsHit?.Invoke();
-            }
-            else
-            {
-                StartCoroutine(InvaderMoveX());
-            }
-            PlayMoveAudio();
-        }
-
-        private IEnumerator InvaderMoveX()
-        {
-            for (int i = 0; i < _maxRows; i++)
-            {
-                for (int j = 0; j < _maxColumns; j++)
-                {
-                    yield return new WaitForSeconds(.01f);
-
-                    if (_directionRight == true)
-                    {
-                        _invaderGrid[i,j].transform.position += new Vector3(_moveSpeed, transform.position.y, transform.position.z);
-                    }
-                    else if (_directionRight == false)
-                    {
-                        _invaderGrid[i,j].transform.position -= new Vector3(_moveSpeed, transform.position.y, transform.position.z);
-                    }
-
-                    _invaderGrid[i,j].PlayMoveAnimation();
-                }
-            }
-        }
-
-        private IEnumerator InvaderMoveY()
-        {
-
-            for (int i = 0; i < _maxRows; i++)
-            {
-                for (int j = 0; j < _maxColumns; j++)
-                {
-                    yield return new WaitForSeconds(.01f);
-                    _invaderGrid[i,j].transform.position += new Vector3(transform.position.x, -_moveSpeed, transform.position.z);
-                    _invaderGrid[i,j].PlayMoveAnimation();
-                }
-            }
-        }
-
-        private void OnRightBoundsHitActionHandler()
-        {
-            Debug.Log("Action Detected");
-            StartCoroutine(InvaderMoveY());
-            _directionRight = false;
-            OnRightBoundsHit -= OnRightBoundsHitActionHandler;
-            OnLeftBoundsHit += OnLeftBoundsHitActionHandler;
             
+            if (_gridBoundsLeft.x <= -2.25)
+            {
+                _directionX = 1;
+                InvaderMoveY();
+                yield return new WaitForSeconds(1f);
+            }
+
+            InvaderMoveX();
+
+            // PlayMoveAudio();
         }
 
-        private void OnLeftBoundsHitActionHandler()
+        private void InvaderMoveX()
         {
-            Debug.Log("Left Action Detected");
-            StartCoroutine(InvaderMoveY());
-            _directionRight = true;
-            OnLeftBoundsHit -= OnLeftBoundsHitActionHandler;
-            OnRightBoundsHit += OnRightBoundsHitActionHandler;
+            for (int i = 0; i < _maxRows; i++)
+            {
+                for (int j = 0; j < _maxColumns; j++)
+                {
+                    _invaderGrid[i,j].transform.position += new Vector3(_directionX * _moveDistance, 0, 0);
+                    _invaderGrid[i,j].PlayMoveAnimation();
+                }
+            }
+        }
+
+        private void InvaderMoveY()
+        {
+            for (int i = 0; i < _maxRows; i++)
+            {
+                for (int j = 0; j < _maxColumns; j++)
+                {
+                    _invaderGrid[i,j].transform.position -= new Vector3(0, _moveDistance, 0);
+                    _invaderGrid[i,j].PlayMoveAnimation();
+                }
+            }
         }
 
         private void OnInvaderDestroyedActionHandler(InvaderController invader)
@@ -203,7 +172,7 @@ namespace SpaceInvadersV2.Controllers
             {
                 if (invader.isActiveAndEnabled)
                 {
-                    Bounds newBounds = invader.GetComponent<Renderer>().bounds;
+                    Bounds newBounds = invader.GetComponent<Collider2D>().bounds;
                     _bounds.Encapsulate(newBounds);
                     _gridBoundsRight = new Vector3(_bounds.max.x, transform.position.y, transform.position.z);
                     _gridBoundsLeft = new Vector3(_bounds.min.x, transform.position.y, transform.position.z);  
